@@ -20,6 +20,24 @@ class Player {
   }
 
   addPlayer() {
-    
+    var playerRef = "players/player"+ player.index;
+    if(player.index == 1) {
+      player.positionX = width/2 - 100;
+    } else {
+      player.positionX = width/2 + 100;
+    }
+
+    database.ref(playerRef).set({
+      name: player.name,
+      positionX: player.positionX,
+      positionY:  player.positionY
+    })
+  }
+
+  static getInfosPlayer() {
+    var playersRef = database.ref("players");
+    playersRef.on("value", function (data) {
+      players = data.val();
+    });
   }
 }

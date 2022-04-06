@@ -24,6 +24,7 @@ class Game {
   }
 
   play() {
-
+    form.hide();
+    Player.getInfosPlayer();
   }
 }

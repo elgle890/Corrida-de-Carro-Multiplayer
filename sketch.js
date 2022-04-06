@@ -5,6 +5,7 @@ var database;
 var form, player;
 var playerCount;
 var gameState;
+var players;
 
 function preload() {
   backgroundImage = loadImage("./assets/planodefundo.png");
