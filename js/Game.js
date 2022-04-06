@@ -24,6 +24,6 @@ class Game {
   }
 
   play() {
-    
+
   }
 }

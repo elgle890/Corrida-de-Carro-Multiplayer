@@ -18,4 +18,8 @@ class Player {
       playerCount: number
     });
   }
+
+  addPlayer() {
+    
+  }
 }
