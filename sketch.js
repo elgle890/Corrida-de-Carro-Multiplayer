@@ -10,7 +10,7 @@ var car1, car2, cars;
 var car1Img, car2Img, trackImg;
 function preload() {
   backgroundImage = loadImage("./assets/planodefundo.png");
-  trackImg = loadImage('./assets/pista.png');
+  trackImg = loadImage('./assets/track.jpg');
   car1Img = loadImage('./assets/car1.png');
   car2Img = loadImage('./assets/car2.png');
 }
