@@ -47,4 +47,14 @@ class Player {
       players = data.val();
     });
   }
+
+  getDistance() {
+    var distanceRef = database.ref('players/player' + this.index);
+
+    distanceRef.on('value', (data)=> {
+      var position = data.val();
+      this.positionX = position.positionX;
+      this.positionY = position.positionY;
+    })
+  }
 }

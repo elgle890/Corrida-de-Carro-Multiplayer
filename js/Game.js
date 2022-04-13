@@ -42,11 +42,22 @@ class Game {
   play() {
     this.handleElements();
     Player.getInfosPlayer();
-
+    
+    var index = 0;
+    
     if(players != undefined) {
       image(trackImg, 0, -height * 5, width, height * 6);
 
       for(var plr in players) {
+        var x = players[plr].positionX;
+        var y = height-players[plr].positionY;
+        cars[index].position.x = x;
+        cars[index].position.y = y;
+
+        console.log(cars[index].y);
+
+        index += 1;
+
         
       }
 
