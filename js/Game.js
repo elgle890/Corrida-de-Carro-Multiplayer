@@ -45,7 +45,21 @@ class Game {
 
     if(players != undefined) {
       image(trackImg, 0, -height * 5, width, height * 6);
+
+      for(var plr in players) {
+        
+      }
+
+      this.handlePlayerController();
+
       drawSprites();
+    }
+  }
+
+  handlePlayerController() {
+    if(keyIsDown(38)) {
+      player.positionY += 10;
+      player.update();
     }
   }
 }

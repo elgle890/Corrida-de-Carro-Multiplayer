@@ -6,6 +6,13 @@ class Player {
     this.positionY = 0;
   }
 
+  update() {
+    // players/player1
+    database.ref("/players/player"+this.index).update({
+      positionY: this.positionY
+    });
+  }
+
   getCount() {
     var playerCountRef = database.ref('playerCount');
     playerCountRef.on('value', function (data) {
