@@ -43,21 +43,30 @@ class Game {
     this.handleElements();
     Player.getInfosPlayer();
     
-    var index = 0;
+    
     
     if(players != undefined) {
       image(trackImg, 0, -height * 5, width, height * 6);
-
+      var index = 0;
       for(var plr in players) {
         var x = players[plr].positionX;
         var y = height-players[plr].positionY;
         cars[index].position.x = x;
         cars[index].position.y = y;
 
-        console.log(cars[index].y);
-
+        
         index += 1;
 
+        if(player.index == index) {
+          fill('red');
+          ellipse(x, y, 60, 60);
+          camera.position.x = width/2;
+          camera.position.y = y;
+
+          console.log(y);
+        }
+
+        
         
       }
 
