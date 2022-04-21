@@ -8,11 +8,17 @@ var gameState;
 var players;
 var car1, car2, cars;
 var car1Img, car2Img, trackImg;
+var obstacle1Img, obstacle2Img, fuelImg, goldCoindImg;
+var groupObstacle, groupFuel, groupGoldCoin;
 function preload() {
   backgroundImage = loadImage("./assets/planodefundo.png");
   trackImg = loadImage('./assets/track.jpg');
   car1Img = loadImage('./assets/car1.png');
   car2Img = loadImage('./assets/car2.png');
+  obstacle1Img = loadImage('./assets/obstacle1.png');
+  obstacle2Img = loadImage('./assets/obstacle2.png');
+  fuelImg = loadImage('./assets/fuel.png');
+  goldCoindImg = loadImage('./assets/goldCoin.png');
 }
 
 function setup() {
@@ -21,6 +27,8 @@ function setup() {
   game = new Game();
   gameState = game.getState();
   game.start();
+
+
 
 }
 

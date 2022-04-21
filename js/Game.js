@@ -24,7 +24,62 @@ class Game {
     car2.scale = 0.07;
 
     cars = [car1, car2];
+
+    groupObstacle = new Group();
+    groupFuel = new Group();
+    groupGoldCoin = new Group();
+
+    var obstaclesPositions = [
+      { x: width / 2 + 250, y: height - 800, image: obstacle2Img },
+      { x: width / 2 - 150, y: height - 1300, image: obstacle1Img },
+      { x: width / 2 + 250, y: height - 1800, image: obstacle1Img },
+      { x: width / 2 - 180, y: height - 2300, image: obstacle2Img },
+      { x: width / 2, y: height - 2800, image: obstacle2Img },
+      { x: width / 2 - 180, y: height - 3300, image: obstacle1Img },
+      { x: width / 2 + 180, y: height - 3300, image: obstacle2Img },
+      { x: width / 2 + 250, y: height - 3800, image: obstacle2Img },
+      { x: width / 2 - 150, y: height - 4300, image: obstacle1Img },
+      { x: width / 2 + 250, y: height - 4800, image: obstacle2Img },
+      { x: width / 2, y: height - 5300, image: obstacle1Img },
+      { x: width / 2 - 180, y: height - 5500, image: obstacle2Img }
+    ];
+
+    this.addSprites(groupGoldCoin, 18, goldCoindImg, 0.09);
+    this.addSprites(groupFuel, 4, fuelImg, 0.02);
+    this.addSprites(groupObstacle, obstaclesPositions.length, obstacle1Img, 0.02, obstaclesPositions);
   }
+
+  addSprites(spriteGroup, spritesNum, spriteImg, scale, positions = []) {
+    for(var i = 0; i < spritesNum; i++) {
+      var x, y;
+
+      if(positions.length > 0) {
+        x = positions[i].x;
+        y = positions[i].y;
+        spriteImg = positions[i].image;
+        
+      } else {
+        x = Math.round(random(width/2+150, width/2-150));
+        y = Math.round(random(-height*4.5, height-400));
+      }
+     
+      var sprite = createSprite(x, y);
+      sprite.addImage(spriteImg);
+      sprite.scale = scale;
+      spriteGroup.add(sprite);
+
+    }
+  }
+
+  handleCoins(index) {
+    cars[index].overlap(groupGoldCoin, (collector, collected) => {
+      player.score += 1;
+      player.update();
+      collected.remove();
+    });
+  }
+
+  
 
   update(number) {
     database.ref("/").update({
@@ -87,6 +142,7 @@ class Game {
           fill('red');
           ellipse(x, y, 60, 60);
           camera.position.x = width/2;
+          this.handleCoins(index - 1);
           if(players[plr].positionY > height) {
             camera.position.y = y;
           }
