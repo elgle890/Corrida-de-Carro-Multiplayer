@@ -7,7 +7,7 @@ var playerCount;
 var gameState;
 var players;
 var car1, car2, cars;
-var car1Img, car2Img, trackImg;
+var car1Img, car2Img, trackImg, blastImg;
 var obstacle1Img, obstacle2Img, fuelImg, goldCoindImg, lifeImg;
 var groupObstacle, groupFuel, groupGoldCoin;
 function preload() {
@@ -20,6 +20,7 @@ function preload() {
   fuelImg = loadImage('./assets/fuel.png');
   goldCoindImg = loadImage('./assets/goldCoin.png');
   lifeImg = loadImage("./assets/life.png");
+  blastImg = loadImage("./assets/blast.png");
 }
 
 function setup() {
